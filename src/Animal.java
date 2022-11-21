@@ -18,12 +18,12 @@ public class Animal {
         System.out.println("Zapisałem zwierze " + this.name);
     }
 
-    public void count(DBConnector dbConnector) {
+    public static void count(DBConnector dbConnector) {
         Integer numberOfRows = dbConnector.countRows("animal");
-        System.out.println("W tabeli animal jest " + numberOfRows + "wierszy");
+        System.out.println("W tabeli animal jest " + numberOfRows + " wierszy");
     }
 
-    public void deleteAll(DBConnector dbConnector) {
+    public static void deleteAll(DBConnector dbConnector) {
         dbConnector.execute("delete from animal");
         System.out.println("Usunąłem wszystkie zwierzęta");
     }

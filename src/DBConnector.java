@@ -30,7 +30,7 @@ public class DBConnector {
 
     public Integer countRows(String tableName) {
         try {
-            String sql = "select count(*) from + tableName";
+            String sql = "select count(*) from " + tableName;
             Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(sql);
             results.next();
