@@ -13,7 +13,7 @@ public class DBConnector {
             System.out.println("Udało się połączyć z bazą");
             return true;
         } catch (Exception e) {
-            System.out.println("Problem z połączeniem");
+//            System.out.println("Problem z połączeniem");
             e.printStackTrace();
             return false;
         }
@@ -28,13 +28,13 @@ public class DBConnector {
         }
     }
 
-    public void executeAndPrintResults(String sql) {
+    public Integer countRows(String tableName) {
         try {
-            Statement statement = connection.createStatement(); // obiekt Statement -obsługa zapytań
+            String sql = "select count(*) from + tableName";
+            Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery(sql);
-            while (results.next()) {
-                System.out.println(results.getInt(1));
-            }
+            results.next();
+            return results.getInt(1);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

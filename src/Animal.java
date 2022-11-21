@@ -19,8 +19,8 @@ public class Animal {
     }
 
     public void count(DBConnector dbConnector) {
-        String sql = "select count(*) from animal";
-        dbConnector.executeAndPrintResults(sql);
+        Integer numberOfRows = dbConnector.countRows("animal");
+        System.out.println("W tabeli animal jest " + numberOfRows + "wierszy");
     }
 
     public void deleteAll(DBConnector dbConnector) {
